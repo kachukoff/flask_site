@@ -1,4 +1,4 @@
-import sys
+import sys, json
 from flask import Flask, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
@@ -8,7 +8,6 @@ FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'content'
 POST_DIR = 'posts'
-
 app = Flask(__name__)
 flatpages = FlatPages(app)
 freezer = Freezer(app)
@@ -18,7 +17,10 @@ app.config.from_object(__name__)
 def index():
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item: item['date'], reverse=True)
-    return render_template('index.html', posts=posts, bigheader=True)
+    with open('settings.txt', encoding='utf8') as config:
+        data = config.read()
+        settings = json.loads(data)
+    return render_template('index.html', posts=posts, bigheader=True, **settings)
 
 @app.route('/posts/<name>/')
 def post(name):
