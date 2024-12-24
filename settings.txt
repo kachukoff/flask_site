@@ -1,4 +1,5 @@
-{"site_title": "John Doe: Python разработчик и автор контента",
+{"site_url":"http://localhost:8000",
+"site_title": "John Doe: Python разработчик и автор контента",
 "description": "Джон Доу - портфолио, резюме и блог Python разработчика",
 "keywords": "Веб-разработка на Python, бэкенд на Django и Flask",
 "name": "Джон Доу",
@@ -12,5 +13,6 @@
 "telegram":"https://t.me/johndoe",
 "facebook":"ttps://facebook.com/john.doe",
 "vk":"https://vk.com/john_doe",
-"email":"mailto:john_doe@gmail.com"
+"email":"mailto:john_doe@gmail.com",
+"city":"Москва"
 }
